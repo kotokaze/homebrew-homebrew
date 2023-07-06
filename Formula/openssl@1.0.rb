@@ -12,11 +12,6 @@ class OpensslAT10 < Formula
   license "OpenSSL"
   version_scheme 1
 
-  livecheck do
-    url "https://www.openssl.org/source/"
-    regex(/href=.*?openssl[._-]v?(1\.0(?:\.\d+)+[a-z]?)\.t/i)
-  end
-
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
 
   depends_on "ca-certificates"
