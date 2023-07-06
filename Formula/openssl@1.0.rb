@@ -1,4 +1,4 @@
-# This formula tracks 1.0.2 branch of OpenSSL, not the 1.1.0 branch. Due to
+# This formula tracks 1.0 branch of OpenSSL, not the 1.1.0 branch. Due to
 # significant breaking API changes in 1.1.0 other formulae will be migrated
 # across slowly, so core will ship `openssl` & `openssl@1.1` for foreseeable.
 # See also v1.0.2t: https://github.com/Homebrew/homebrew-core/blob/8b9d6d688f483a0f33fcfc93d433de501b9c3513/Formula/openssl.rb
@@ -19,10 +19,10 @@ class OpensslAT10 < Formula
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
 
+  depends_on "ca-certificates"
+
   # Add darwin64-arm64-cc & debug-darwin64-arm64-cc build targets.
   patch :DATA
-
-  depends_on "ca-certificates"
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
